@@ -1,6 +1,7 @@
 import React from 'react'
 
 
+
 class TeamMember extends React.Component {
 
     constructor( props ){
@@ -17,14 +18,24 @@ class TeamMember extends React.Component {
     }
 
     render(){
+        let content;
+
+        if( this.state.isVisible ) {
+            content = <div><h5>Team Member's Name: {this.props.name}</h5>
+            <img src={this.props.avatarURL} /></div>;
+        }
         return(
+           
+
             <div>
                 <button onClick={this.toggleVisibility}>
                 Toggle Visibility
                 </button>
-                <h5>Team Member's Name: {this.props.name}</h5>
-                <img src={this.props.avatarURL} />
+                { content }
+                 
+                
             </div>
+          
         );
     }
 
