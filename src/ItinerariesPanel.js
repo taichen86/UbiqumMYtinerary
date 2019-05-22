@@ -18,7 +18,7 @@ class ItinerariesPanel extends React.Component {
 
 
         return (
-            <div>
+            <div id="itineraries-panel">
 
                { ITINERARIES.map( itinerary => { 
                    return <ItineraryThumb cityName={itinerary.city} itineraryName={itinerary.name}></ItineraryThumb>

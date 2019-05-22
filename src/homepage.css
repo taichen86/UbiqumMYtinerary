@@ -1,11 +1,22 @@
 #account-btn{
     width: 20%;
+    float: left;
 }
 
 #home-btn{
     width: 20%;
+    float: right;
 }
 
 #next-btn{
     width: 50%;
 }
+
+#nav-space{
+    height: 100px;
+}
+
+#itineraries-panel {
+    display: flex;
+    flex-wrap: wrap;
+  }
