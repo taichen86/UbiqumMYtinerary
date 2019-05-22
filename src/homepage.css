@@ -1,15 +1,15 @@
 #account-btn{
-    width: 20%;
+    width: 10%;
     float: left;
 }
 
 #home-btn{
-    width: 20%;
+    width: 10%;
     float: right;
 }
 
 #next-btn{
-    width: 50%;
+    width: 30%;
 }
 
 #nav-space{
@@ -19,4 +19,26 @@
 #itineraries-panel {
     display: flex;
     flex-wrap: wrap;
-  }
+}
+
+#itinerary-card{
+    width: 40%;
+    margin-bottom: 10%;
+    margin-right: 5%;
+    padding: 2%;
+    background-color: lightblue;
+}
+
+#homepage{
+    padding: 10px;
+}
+
+.text-align-centered{
+    text-align: center;
+}
+
+#next-btn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
