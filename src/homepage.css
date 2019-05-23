@@ -42,3 +42,17 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.slider-container{
+    position: relative;
+}
+
+.slider-textblock{
+    position: absolute;
+    bottom: 20px;
+    left: 25%;
+}
+
+.full-width{
+    width: 50%;
+}

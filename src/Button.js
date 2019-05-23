@@ -6,7 +6,7 @@ class Button extends React.Component {
         return (
             <div>
                 <input type="image" id={this.props.id} alt={this.props.altText}
-                src={this.props.imgURL}></input>
+                src={this.props.imgURL} ></input>
             </div>
         );
     }
