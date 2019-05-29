@@ -10,6 +10,8 @@ import Cities from './Cities';
 import SignUp from './SignUp';
 import LogIn from './LogIn';
 
+// const mongoose = require( 'mongoose' );
+
 const routing = (
     <Router>
       <div>

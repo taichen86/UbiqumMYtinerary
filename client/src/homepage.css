@@ -45,6 +45,8 @@
 
 .slider-container{
     position: relative;
+    width: 45%;
+    padding-right: 4%;
 }
 
 .slider-textblock{
@@ -54,5 +56,10 @@
 }
 
 .full-width{
-    width: 50%;
+    width: 100%;
 }
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+  }

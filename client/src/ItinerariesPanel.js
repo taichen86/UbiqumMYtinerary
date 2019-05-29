@@ -50,6 +50,8 @@ function orderCitiesby4(){
     });
 }
 
+
+
 class ItinerariesPanel extends React.Component {
 
     render(){
@@ -64,40 +66,43 @@ class ItinerariesPanel extends React.Component {
                 <Slider>
                     {contentx4.map((article, index) => 
                     <div key={index}>
+
+                        <div className="flex-container">
                     
-                        <div className="slider-container">
-                            <img src={article[0].image} alt={article[0].city} className="full-width"></img>
-                            <div className="slider-textblock">
-                                {article[0].city}
-                                {article[0].title}
-                            </div>
+                    <div className="slider-container">
+                        <img src={article[0].image} alt={article[0].city} className="full-width"></img>
+                        <div className="slider-textblock">
+                            {article[0].city}
+                            {article[0].title}
                         </div>
+                    </div>
 
-                        <div className="slider-container">
-                            <img src={article[1].image} alt={article[1].city} className="full-width"></img>
-                            <div className="slider-textblock">
-                                {article[1].city}
-                                {article[1].title}
-                            </div>
+                    <div className="slider-container">
+                        <img src={article[1].image} alt={article[1].city} className="full-width"></img>
+                        <div className="slider-textblock">
+                            {article[1].city}
+                            {article[1].title}
                         </div>
+                    </div>
 
-                        <div className="slider-container">
-                            <img src={article[2].image} alt={article[2].city} className="full-width"></img>
-                            <div className="slider-textblock">
-                                {article[2].city}
-                                {article[2].title}
-                            </div>
+                    <div className="slider-container">
+                        <img src={article[2].image} alt={article[2].city} className="full-width"></img>
+                        <div className="slider-textblock">
+                            {article[2].city}
+                            {article[2].title}
                         </div>
+                    </div>
 
-                        <div className="slider-container">
-                            <img src={article[3].image} alt={article[3].city} className="full-width"></img>
-                            <div className="slider-textblock">
-                                {article[3].city}
-                                {article[3].title}
-                            </div>
+                    <div className="slider-container">
+                        <img src={article[3].image} alt={article[3].city} className="full-width"></img>
+                        <div className="slider-textblock">
+                            {article[3].city}
+                            {article[3].title}
                         </div>
-
+                    </div>
                     
+
+                    </div>
                     
 
                     </div>)}
@@ -121,3 +126,5 @@ export default ItinerariesPanel;
 // { ITINERARIES.map( itinerary => { 
 //     return <ItineraryThumb cityName={itinerary.city} itineraryName={itinerary.name}></ItineraryThumb>
 // } ) }
+
+                    

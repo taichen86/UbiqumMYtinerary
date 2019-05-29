@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import ItinerariesPanel from './ItinerariesPanel';
+import { Link } from 'react-router-dom';
 
 import './homepage.css';
 
@@ -25,7 +26,7 @@ class HomePage extends React.Component {
                 <h1 class="text-align-centered">MYtinerary</h1>
                 <p class="text-align-centered">Find your perfect trip, designed by insiders who know and love their cities.</p>
               
-                <Button id="next-btn" imgURL="circledArrow.png" altText="Next"></Button>
+                <Link to="/cities"><Button id="next-btn" imgURL="circledArrow.png" altText="Next"></Button></Link>
 
                 <ItinerariesPanel></ItinerariesPanel>
                 
