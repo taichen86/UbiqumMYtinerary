@@ -17,6 +17,7 @@ router.get('/', (req, res) => {
         if( err ){
             console.log( "got error: " + err );
         }
+        res.setHeader( "Access-Control-Allow-Origin", "http://localhost:3000" );
         res.json( cities );
         
     } )
