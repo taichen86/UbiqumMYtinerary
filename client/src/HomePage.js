@@ -28,7 +28,7 @@ class HomePage extends React.Component {
               
                 <Link to="/cities"><Button id="next-btn" imgURL="circledArrow.png" altText="Next"></Button></Link>
 
-                <ItinerariesPanel></ItinerariesPanel>
+                {/* <ItinerariesPanel></ItinerariesPanel> */}
                 
                 
                 

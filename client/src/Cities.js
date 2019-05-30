@@ -39,7 +39,7 @@ class Cities extends React.Component {
         console.log( "check props... " + this.props );
         console.log( this.props );
         const citiesList = this.props.cities.map( city => {
-            return <CityCard city={city.city} country={city.country}></CityCard>
+            return <CityCard city={city} ></CityCard>
         } );
         return (
             <div>
