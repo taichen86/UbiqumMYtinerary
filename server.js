@@ -33,11 +33,9 @@ app.get('/sample', function(req, res) {
 
 app.use( '/cities', citiesRoute );
 
-
-
-
 // // apply the routes to our application
 // app.use('/', router);
+
 
 // START THE SERVER
 // ==============================================

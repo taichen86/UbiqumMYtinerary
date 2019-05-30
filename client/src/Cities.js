@@ -1,18 +1,20 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import CityCard from './CityCard';
+
 
 class Cities extends React.Component {
 
-    constructor(props) 
-    {
-        super(props);
+    // constructor(props) 
+    // {
+    //     super(props);
     
-        this.state = {
-          data: [],
-          isFetching: true
+    //     this.state = {
+    //       data: [], 
+    //       isFetching: true
          
-        };
-    }
+    //     };
+    // }
 
     componentDidMount() 
     {
@@ -22,6 +24,8 @@ class Cities extends React.Component {
               console.log( "got DATA: " + data );
                 data.map( item => {
                     console.log( item );
+                    console.log( "add city to dispatch..." );
+                    this.props.addCity( item );
                     
                 });
                 this.setState({ data });
@@ -32,15 +36,18 @@ class Cities extends React.Component {
 
     render()
     {
-        const citiesLIst = this.state.data.map( city => {
+        console.log( "check props... " + this.props );
+        console.log( this.props );
+        const citiesList = this.props.cities.map( city => {
             return <CityCard city={city.city} country={city.country}></CityCard>
         } );
         return (
             <div>
                 CITIES PAGE
-                <h2>{this.state.isFetching}</h2>
+                {citiesList}
+                {/* <h2>{this.state.isFetching}</h2>
                 <p>{this.state.isFetching ? 'Fetching data...' : ''}</p>
-                {!this.state.isFetching && citiesLIst}
+                {!this.state.isFetching && citiesList} */}
             </div>
             
         );
@@ -48,4 +55,21 @@ class Cities extends React.Component {
 
 }
 
-export default Cities;
+const mapStateToProps = ( state ) => {
+    return {
+        cities: state.cities
+    }
+}
+
+const mapDispatchToProps = ( dispatch ) => {
+    return {
+        addCity: (city) => {
+            dispatch({
+                type: "ADD_CITY",
+                cityToAdd: city
+            })
+        }
+    }
+}
+
+export default connect( mapStateToProps, mapDispatchToProps )( Cities )
