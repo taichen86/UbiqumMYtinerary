@@ -6,8 +6,11 @@ class CityCard extends React.Component {
 
     render(){
         const cardStyle = {
-            height: '300px',
-            backgroundImage: 'url(' + this.props.city.imgURL + ')',
+            height: '15%',
+        //    backgroundImage: 'url(city-barcelona.jpg)',
+            backgroundImage: 'url(' + 'city-' + this.props.city.city + '.jpg' + ')',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center'
           };
         return (
             <div id="city-card">
@@ -27,7 +30,6 @@ class CityCard extends React.Component {
 // const cardStyle = { 
 //     backgroundImage: 'url(city-madrid.jpg)'
 //  };
-
 
 
 export default CityCard;
