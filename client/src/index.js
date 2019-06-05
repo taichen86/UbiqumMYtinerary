@@ -19,7 +19,7 @@ const initState = { cities: [
 const middleWare = [thunk];
 
 // const myStore = createStore(citiesReducer, +  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-const myStore = createStore(citiesReducer, initState, compose(
+const myStore = createStore(citiesReducer, compose(
     applyMiddleware(...middleWare),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ));

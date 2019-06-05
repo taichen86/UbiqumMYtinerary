@@ -30,10 +30,11 @@ const content = [
 
 ];
 
+
 let contentx4 = [];
-console.log( "initialize contentx4" );
-orderCitiesby4();
-console.log( "content x 4 ... " + contentx4 );
+// console.log( "initialize contentx4" );
+// orderCitiesby4();
+// console.log( "content x 4 ... " + contentx4 );
 
 function orderCitiesby4(){
     console.log( "order cities by 4" );

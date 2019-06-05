@@ -3,8 +3,8 @@ import './homepage.css';
 
 class CityCard extends React.Component {
 
-
     render(){
+
         const cardStyle = {
             height: '15%',
         //    backgroundImage: 'url(city-barcelona.jpg)',
@@ -12,6 +12,7 @@ class CityCard extends React.Component {
             backgroundSize: 'cover',
             backgroundPosition: 'center center'
           };
+
         return (
             <div id="city-card">
                 {/* <img src={this.props.city.imgURL}></img> */}
@@ -27,9 +28,7 @@ class CityCard extends React.Component {
 
 }
 
-// const cardStyle = { 
-//     backgroundImage: 'url(city-madrid.jpg)'
-//  };
+
 
 
 export default CityCard;

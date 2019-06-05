@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import CityCard from './CityCard';
+import SearchBox from './SearchBox';
+import { fetchAllCities } from './actions/cityActions';
 
 
 class Cities extends React.Component {
@@ -18,33 +20,37 @@ class Cities extends React.Component {
 
     componentDidMount() 
     {
-        fetch( 'http://localhost:8080/cities' )
-          .then( response => response.json() )
-          .then( data => { 
-              console.log( "got DATA: " + data );
-                data.map( item => {
-                    console.log( item );
-                    console.log( "add city to dispatch..." );
-                    this.props.addCity( item );
-                    
-                });
-                this.setState({ data });
-                this.setState({ isFetching: false });
-            } );
+        console.log( this.props );
+        console.log( "did mount, call fetch all cities action")
+        this.props.fetchAllCities();
+    }
+
+    filterCities = ( cityFilter ) => {
+        console.log( "filter cities by ..." + cityFilter );
+
+        let filteredCities = Array.from( this.props.cities ).filter( ( city ) => {
+            return String( city.city ).toLowerCase().includes( cityFilter.toLowerCase() )
+        } )
+        console.log( "after filtering... " );
+        console.log( filteredCities );
+
+        
     }
     
 
     render()
     {
-        console.log( "check props... " + this.props );
+        console.log( "RENDER check props... " + this.props );
         console.log( this.props );
-        const citiesList = this.props.cities.map( city => {
+        const citiesToShow = this.props.cities.map( city => {
             return <CityCard city={city} ></CityCard>
         } );
         return (
             <div>
-                CITIES PAGE
-                {citiesList}
+                ==== CITIES PAGE ===
+                <h5>Find our current cities:</h5>
+                <SearchBox onChange={this.filterCities}></SearchBox>
+                {citiesToShow}
                 {/* <h2>{this.state.isFetching}</h2>
                 <p>{this.state.isFetching ? 'Fetching data...' : ''}</p>
                 {!this.state.isFetching && citiesList} */}
@@ -56,6 +62,7 @@ class Cities extends React.Component {
 }
 
 const mapStateToProps = ( state ) => {
+    console.log( "updated state" , state );
     return {
         cities: state.cities
     }
@@ -63,12 +70,20 @@ const mapStateToProps = ( state ) => {
 
 const mapDispatchToProps = ( dispatch ) => {
     return {
-        addCity: (city) => {
-            dispatch({
-                type: "ADD_CITY",
-                cityToAdd: city
-            })
-        }
+        fetchAllCities : () => dispatch( fetchAllCities() )
+
+        // addCity: (city) => {
+        //     dispatch({
+        //         type: "ADD_CITY",
+        //         cityToAdd: city
+        //     })
+        // },
+        // getAllCities: () => {
+        //     dispatch({
+        //         type: "GET_ALL_CITIES",
+        //         url: 'http://localhost:8080/cities'
+        //     })
+        // }
     }
 }
 
