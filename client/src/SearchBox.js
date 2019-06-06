@@ -2,18 +2,18 @@ import React from 'react';
 
 class SearchBox extends React.Component{
 
-    constructor( props ){
-        super( props );
-        this.state = {
-            searchInput :  "" // need this???
-        }
-    }
+    // constructor( props ){
+    //     super( props );
+    //     this.state = {
+    //         searchInput :  ""
+    //     }
+    // }
 
     handleChange = (e) => {
         console.log( e.target.value );
-        this.setState({
-            searchInput: e.target.value
-        })
+        // this.setState({
+        //     searchInput: e.target.value
+        // })
         this.props.onChange( e.target.value );
     }
 
@@ -22,7 +22,7 @@ class SearchBox extends React.Component{
         return(
             <div>
                 <input type="text" placeholder="Search.." id="filter"
-                value={this.state.searchInput}
+                // value={this.state.searchInput}
                 onChange={this.handleChange}></input>
             </div>
         );
