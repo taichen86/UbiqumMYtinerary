@@ -7,16 +7,14 @@ import { fetchAllCities } from './actions/cityActions';
 
 class Cities extends React.Component {
 
-    // constructor(props) 
-    // {
-    //     super(props);
+    constructor(props) 
+    {
+        super(props);
     
-    //     this.state = {
-    //       data: [], 
-    //       isFetching: true
-         
-    //     };
-    // }
+        this.state = {
+          citiesToShow: []
+        };
+    }
 
     componentDidMount() 
     {
@@ -25,15 +23,14 @@ class Cities extends React.Component {
         this.props.fetchAllCities();
     }
 
-    filterCities = ( cityFilter ) => {
-        console.log( "filter cities by ..." + cityFilter );
-
-        let filteredCities = Array.from( this.props.cities ).filter( ( city ) => {
-            return String( city.city ).toLowerCase().includes( cityFilter.toLowerCase() )
-        } )
-        console.log( "after filtering... " );
-        console.log( filteredCities );
-
+    filterCities = ( searchInput ) => {
+        console.log( "filter cities by ..." + searchInput );
+        this.state.citiesToShow = Array.from( this.props.cities )
+                            .filter( ( city ) => {
+                            return String( city.city ).toLowerCase()
+                            .includes( searchInput.toLowerCase() )
+                        })
+        console.log( "after filtering... ", this.state.citiesToShow );
         
     }
     
@@ -42,7 +39,7 @@ class Cities extends React.Component {
     {
         console.log( "RENDER check props... " + this.props );
         console.log( this.props );
-        const citiesToShow = this.props.cities.map( city => {
+        this.state.citiesToShow = this.props.cities.map( city => {
             return <CityCard city={city} ></CityCard>
         } );
         return (
@@ -50,10 +47,9 @@ class Cities extends React.Component {
                 ==== CITIES PAGE ===
                 <h5>Find our current cities:</h5>
                 <SearchBox onChange={this.filterCities}></SearchBox>
-                {citiesToShow}
-                {/* <h2>{this.state.isFetching}</h2>
-                <p>{this.state.isFetching ? 'Fetching data...' : ''}</p>
-                {!this.state.isFetching && citiesList} */}
+                <label>{this.props.isLoading ? 'Fetching data...' : ''}</label>
+                {this.state.citiesToShow}
+
             </div>
             
         );
@@ -64,7 +60,8 @@ class Cities extends React.Component {
 const mapStateToProps = ( state ) => {
     console.log( "updated state" , state );
     return {
-        cities: state.cities
+        cities: state.cities,
+        isLoading: state.isLoading
     }
 }
 

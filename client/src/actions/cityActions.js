@@ -1,14 +1,10 @@
 import axios from 'axios';
 
-export function fetchCitiesSuccess( cities ){
-    return {
-        type: 'FETCH_CITY_SUCCESS',
-        cities: cities
-    }
-}
-
 export const fetchAllCities = () => {
     return dispatch => {
+        dispatch({
+            type: 'FETCH_CITY_IN_PROGRESS'
+        })
         console.log( "inside ACTION fetchAllCities" );
         return axios.get( 'http://localhost:8080/cities' )
         .then( result => {
