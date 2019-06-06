@@ -8,13 +8,9 @@ import citiesReducer from './reducers/citiesReducer'
 
 
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Routing from './Routing';
 
-const initState = { cities: [
-    { city: "test city", country: "test country" }
-] };
 
 const middleWare = [thunk];
 
@@ -25,8 +21,8 @@ const myStore = createStore(citiesReducer, compose(
 ));
 
 
-const MEMBERS = [{ name: "Marting Wright", avatarURL: "avatarMartin.png" },
-                { name: "Sabrina Miller", avatarURL: "avatarSabrina.png"}];
+// const MEMBERS = [{ name: "Marting Wright", avatarURL: "avatarMartin.png" },
+//                 { name: "Sabrina Miller", avatarURL: "avatarSabrina.png"}];
 
 // ReactDOM.render(<App />, document.getElementById('root'));
 ReactDOM.render( <Provider store={myStore}><Routing></Routing></Provider>, 

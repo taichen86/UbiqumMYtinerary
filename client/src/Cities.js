@@ -23,13 +23,23 @@ class Cities extends React.Component {
         this.props.fetchAllCities();
     }
 
+    componentWillReceiveProps( props ){
+       console.log( "componentWillReceiveProps" , props );
+       this.setState({
+           citiesToShow: props.cities
+       });
+
+    }
+
     filterCities = ( searchInput ) => {
         console.log( "filter cities by ..." + searchInput );
-        this.state.citiesToShow = Array.from( this.props.cities )
-                            .filter( ( city ) => {
-                            return String( city.city ).toLowerCase()
-                            .includes( searchInput.toLowerCase() )
-                        })
+        this.setState({
+            citiesToShow: Array.from( this.props.cities )
+            .filter( ( city ) => {
+            return String( city.city ).toLowerCase()
+            .includes( searchInput.toLowerCase() )
+        })
+        })
         console.log( "after filtering... ", this.state.citiesToShow );
         
     }
@@ -37,19 +47,18 @@ class Cities extends React.Component {
 
     render()
     {
-        console.log( "RENDER check props... " + this.props );
-        console.log( this.props );
-        this.state.citiesToShow = this.props.cities.map( city => {
+        console.log( "RENDER check props... ", this.props );
+        const citiesList = this.state.citiesToShow.map( city => {
             return <CityCard city={city} ></CityCard>
         } );
+        console.log( "citiesToShow", this.state.citiesToShow );
         return (
             <div>
                 ==== CITIES PAGE ===
                 <h5>Find our current cities:</h5>
                 <SearchBox onChange={this.filterCities}></SearchBox>
                 <label>{this.props.isLoading ? 'Fetching data...' : ''}</label>
-                {this.state.citiesToShow}
-
+                {citiesList}
             </div>
             
         );

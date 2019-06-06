@@ -8,7 +8,7 @@ class CityCard extends React.Component {
         const cardStyle = {
             height: '15%',
         //    backgroundImage: 'url(city-barcelona.jpg)',
-            backgroundImage: 'url(' + 'city-' + this.props.city.city + '.jpg' + ')',
+            backgroundImage: 'url(city-' + this.props.city.city + '.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center center'
           };

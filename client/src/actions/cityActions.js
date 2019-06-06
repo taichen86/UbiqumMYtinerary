@@ -5,7 +5,6 @@ export const fetchAllCities = () => {
         dispatch({
             type: 'FETCH_CITY_IN_PROGRESS'
         })
-        console.log( "inside ACTION fetchAllCities" );
         return axios.get( 'http://localhost:8080/cities' )
         .then( result => {
             console.log( "got DATA ");
