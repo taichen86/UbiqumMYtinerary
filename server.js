@@ -1,12 +1,14 @@
 // BASE SETUP
 // ==============================================
 
-
 const express = require('express');
 const app     = express();
 const port    = process.env.PORT || 8080;
 
+const cors = require( 'cors' );
+
 const citiesRoute = require( './routes/cities' );
+const initerariesRoute = require( './routes/itineraries' );
 
 const mongoose = require('mongoose');
 mongoose.connect( 'mongodb+srv://ubiqum-victoria:ubiqum2019@cluster0-dbuta.mongodb.net/MYtineraries?retryWrites=true', {useNewUrlParser: true});
@@ -23,17 +25,12 @@ connection.on( 'error', function(error){
 });
 
 
+app.use( cors() );
 // ROUTES
 // ==============================================
 
-// sample route with a route the way we're used to seeing it
-app.get('/sample', function(req, res) {
-    res.send('this is a sample!');  
-});
-
 app.use( '/cities', citiesRoute );
-
-// // apply the routes to our application
+app.use( '/itineraries', initerariesRoute );
 // app.use('/', router);
 
 

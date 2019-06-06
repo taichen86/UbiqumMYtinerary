@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { createStore, compose, applyMiddleware} from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
-import citiesReducer from './reducers/citiesReducer'
+import rootReducer from './reducers/rootReducer';
 
 
 import './index.css';
@@ -15,7 +15,7 @@ import Routing from './Routing';
 const middleWare = [thunk];
 
 // const myStore = createStore(citiesReducer, +  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-const myStore = createStore(citiesReducer, compose(
+const myStore = createStore(rootReducer, compose(
     applyMiddleware(...middleWare),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ));

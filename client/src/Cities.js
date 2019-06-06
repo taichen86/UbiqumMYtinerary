@@ -13,9 +13,6 @@ class Cities extends React.Component {
         this.state = {
             searchInput: ""
         }
-        // this.state = {
-        //   citiesToShow: props.cities
-        // };
     }
 
     componentDidMount(){
@@ -24,35 +21,17 @@ class Cities extends React.Component {
         this.props.fetchAllCities();
     }
 
-    // componentWillReceiveProps( props ){
-    //    console.log( "componentWillReceiveProps" , props );
-    //    this.setState({
-    //        citiesToShow: props.cities
-    //    });
-
-    // }
-
     updateSearchInput = ( input ) => {
         this.setState({
             searchInput: input
         })
-        // console.log( "filter cities by ..." + searchInput );
-        // this.setState({
-        //     citiesToShow: Array.from( this.props.cities )
-        //     .filter( ( city ) => {
-        //     return String( city.city ).toLowerCase()
-        //     .includes( searchInput.toLowerCase() )
-        // })
-        // })
-        // console.log( "after filtering... ", this.state.citiesToShow );
-        
     }
     
 
     render()
     {
         console.log( "RENDER check props... ", this.props );
-        const filteredCities = Array.from( this.props.cities).filter( city => {
+        const filteredCities = Array.from( this.props.cities ).filter( city => {
             return String( city.city ).toLowerCase().includes( this.state.searchInput.toLowerCase() )
         } );
         console.log( "filtered cities", filteredCities );
@@ -79,8 +58,8 @@ class Cities extends React.Component {
 const mapStateToProps = ( state ) => {
     console.log( "updated state" , state );
     return {
-        cities: state.cities,
-        isLoading: state.isLoading
+        cities: state.citiesReducer.cities,
+        isLoading: state.citiesReducer.isLoading
     }
 }
 

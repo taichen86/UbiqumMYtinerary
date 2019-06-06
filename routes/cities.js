@@ -3,12 +3,8 @@ const express = require('express');
 const cityModel = require('../models/City');
 
 
-// we'll create our routes here
-
-// get an instance of router
 const router = express.Router();
 
-console.log( "hello??" );
 router.get('/', (req, res) => {
     console.log( "find all cities..." );
     cityModel.find( {}, function(err, cities){
@@ -17,8 +13,8 @@ router.get('/', (req, res) => {
         if( err ){
             console.log( "got error: " + err );
         }
-        console.log( "response set header" );
-        res.setHeader( "Access-Control-Allow-Origin", "http://localhost:3000" );
+        // console.log( "response set header" );
+        // res.setHeader( "Access-Control-Allow-Origin", "http://localhost:3000" );
         res.json( cities );
         
     } )
@@ -32,6 +28,4 @@ module.exports = router;
 //     res.send('im the home page!');  
 // });
 
-// router.get('/test', (req, res) => {
-//     res.send('im the test page!'); 
-// });
+
