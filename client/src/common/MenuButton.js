@@ -1,7 +1,12 @@
 import React from 'react';
 import { Wrapper, Button, Menu, MenuItem } from 'react-aria-menubutton';
 
-
+export const loginMenu = { 
+  items: [ 'sign up', 'login', 'logout', 'settings'],
+  url: '/icon-user-32.png' };
+export const mainMenu = {
+  items: [ 'home', 'cities', 'itineraries', 'activities'],
+  url: '/icon-menu-32.png' };
 
 class MenuButton extends React.Component{
 

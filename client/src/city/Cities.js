@@ -3,17 +3,11 @@ import {connect} from 'react-redux';
 import CityCard from './CityCard';
 import SearchBox from '../SearchBox';
 import { fetchAllCities } from '../actions/cityActions';
-import MenuButton from '../common/MenuButton';
 
-// share this const across files?
-const loginMenu = { 
-    items: [ 'sign up', 'login', 'logout', 'settings'],
-    url: '/icon-user-32.png' };
-  const mainMenu = {
-    items: [ 'home', 'cities', 'itineraries', 'activities'],
-    url: '/icon-menu-32.png' };
-  
-  
+import MenuButton from '../common/MenuButton';
+import { loginMenu, mainMenu } from '../common/MenuButton';
+
+
 
 class Cities extends React.Component {
 

@@ -3,15 +3,10 @@ import Button from './Button';
 import { Link } from 'react-router-dom';
 
 import MenuButton from './common/MenuButton';
+import { loginMenu, mainMenu } from './common/MenuButton';
+
 import './homepage.css';
 
-
-const loginMenu = { 
-    items: [ 'sign up', 'login', 'logout', 'settings'],
-    url: '/icon-user-32.png' };
-const mainMenu = {
-    items: [ 'home', 'cities', 'itineraries', 'activities'],
-    url: '/icon-menu-32.png' };
 
 class HomePage extends React.Component {
 
