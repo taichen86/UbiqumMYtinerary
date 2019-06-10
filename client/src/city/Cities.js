@@ -3,7 +3,17 @@ import {connect} from 'react-redux';
 import CityCard from './CityCard';
 import SearchBox from '../SearchBox';
 import { fetchAllCities } from '../actions/cityActions';
+import MenuButton from '../common/MenuButton';
 
+// share this const across files?
+const loginMenu = { 
+    items: [ 'sign up', 'login', 'logout', 'settings'],
+    url: '/icon-user-32.png' };
+  const mainMenu = {
+    items: [ 'home', 'cities', 'itineraries', 'activities'],
+    url: '/icon-menu-32.png' };
+  
+  
 
 class Cities extends React.Component {
 
@@ -43,7 +53,11 @@ class Cities extends React.Component {
 
         return (
             <div>
-                ==== CITIES PAGE ===
+                <div id="header-bar">
+                    <MenuButton menuItemWords={loginMenu.items} imgURL={loginMenu.url} ></MenuButton>
+                    <MenuButton menuItemWords={mainMenu.items} imgURL={mainMenu.url} ></MenuButton>
+                </div>
+
                 <h5>Find our current cities:</h5>
                 <SearchBox onChange={this.updateSearchInput}></SearchBox>
                 <label>{this.props.isLoading ? 'Fetching data...' : ''}</label>

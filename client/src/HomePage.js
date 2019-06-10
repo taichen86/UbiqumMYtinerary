@@ -1,15 +1,17 @@
 import React from 'react';
 import Button from './Button';
-import ItinerariesPanel from './ItinerariesPanel';
 import { Link } from 'react-router-dom';
 
+import MenuButton from './common/MenuButton';
 import './homepage.css';
-import MenuButton from './common/header';
 
 
-
-
-const menuItems = [ 'home', 'cities', 'itineraries', 'activities'];
+const loginMenu = { 
+    items: [ 'sign up', 'login', 'logout', 'settings'],
+    url: '/icon-user-32.png' };
+const mainMenu = {
+    items: [ 'home', 'cities', 'itineraries', 'activities'],
+    url: '/icon-menu-32.png' };
 
 class HomePage extends React.Component {
 
@@ -19,11 +21,11 @@ class HomePage extends React.Component {
 
             <div id="homepage">
                 
-                <div id="top-nav">
-                <MenuButton menuItemWords={menuItems} imgURL='/icon-user.png'></MenuButton>
-                {/* <Button id="account-btn" imgURL="homeIcon.png" altText="Account"></Button>
-                <Button id="home-btn" imgURL="homeIcon.png" altText="Home"></Button> */}
+                <div id="header-bar">
+                    <MenuButton menuItemWords={loginMenu.items} imgURL={loginMenu.url} ></MenuButton>
+                    <MenuButton menuItemWords={mainMenu.items} imgURL={mainMenu.url} ></MenuButton>
                 </div>
+
                 <div id="nav-space"></div>
                 
             

@@ -1,3 +1,9 @@
+#header-bar{
+    display: flex;
+    justify-content: space-between
+}
+
+
 #account-btn{
     width: 10%;
     float: left;
