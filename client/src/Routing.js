@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import HomePage from './HomePage';
-import Cities from './Cities';
+import Cities from './city/Cities';
 import SignUp from './SignUp';
 import LogIn from './LogIn';
 import Itineraries from './Itineraries';

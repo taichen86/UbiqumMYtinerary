@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import CityCard from './CityCard';
-import SearchBox from './SearchBox';
-import { fetchAllCities } from './actions/cityActions';
+import SearchBox from '../SearchBox';
+import { fetchAllCities } from '../actions/cityActions';
 
 
 class Cities extends React.Component {
@@ -48,7 +48,6 @@ class Cities extends React.Component {
                 <SearchBox onChange={this.updateSearchInput}></SearchBox>
                 <label>{this.props.isLoading ? 'Fetching data...' : ''}</label>
                 {filteredCityCards}
-                
             </div>
         );
     }

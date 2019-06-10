@@ -1,5 +1,5 @@
 import React from 'react';
-import './homepage.css';
+import '../homepage.css';
 
 class CityCard extends React.Component {
 

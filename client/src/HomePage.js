@@ -4,12 +4,15 @@ import ItinerariesPanel from './ItinerariesPanel';
 import { Link } from 'react-router-dom';
 
 import './homepage.css';
+import MenuButton from './common/header';
 
 
 
 
+const menuItems = [ 'home', 'cities', 'itineraries', 'activities'];
 
 class HomePage extends React.Component {
+
 
     render(){
         return (
@@ -17,8 +20,9 @@ class HomePage extends React.Component {
             <div id="homepage">
                 
                 <div id="top-nav">
-                <Button id="account-btn" imgURL="homeIcon.png" altText="Account"></Button>
-                <Button id="home-btn" imgURL="homeIcon.png" altText="Home"></Button>
+                <MenuButton menuItemWords={menuItems} imgURL='/icon-user.png'></MenuButton>
+                {/* <Button id="account-btn" imgURL="homeIcon.png" altText="Account"></Button>
+                <Button id="home-btn" imgURL="homeIcon.png" altText="Home"></Button> */}
                 </div>
                 <div id="nav-space"></div>
                 
