@@ -24,12 +24,11 @@ class HomePage extends React.Component {
                 <div id="nav-space"></div>
                 
             
-                <h1 class="text-align-centered">MYtinerary</h1>
-                <p class="text-align-centered">Find your perfect trip, designed by insiders who know and love their cities.</p>
+                <h1 className="text-align-centered">MYtinerary</h1>
+                <p className="text-align-centered">Find your perfect trip, designed by insiders who know and love their cities.</p>
               
                 <Link to="/cities"><Button id="next-btn" imgURL="circledArrow.png" altText="Next"></Button></Link>
 
-                {/* <ItinerariesPanel></ItinerariesPanel> */}
                 
                 
                 

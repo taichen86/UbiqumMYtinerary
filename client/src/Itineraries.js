@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchAllItineraries} from './actions/itineraryActions';
+import CityCard from './city/CityCard';
 
 
 class Itineraries extends React.Component {
@@ -14,7 +15,8 @@ class Itineraries extends React.Component {
     render(){
         return(
             <div>
-                === ITINERARIES PAGE ===
+            {/* <CityCard city={this.props.city} ></CityCard> */}
+               <h3>Available MYtineraries:</h3>
             </div>
         );
     }

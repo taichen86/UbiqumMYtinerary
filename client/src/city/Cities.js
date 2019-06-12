@@ -7,6 +7,8 @@ import { fetchAllCities } from '../actions/cityActions';
 import MenuButton from '../common/MenuButton';
 import { loginMenu, mainMenu } from '../common/MenuButton';
 
+import { Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 
 class Cities extends React.Component {
@@ -15,7 +17,8 @@ class Cities extends React.Component {
     {
         super(props);
         this.state = {
-            searchInput: ""
+            searchInput: "",
+            citySelected: null
         }
     }
 
@@ -30,10 +33,18 @@ class Cities extends React.Component {
             searchInput: input
         })
     }
+
+
     
 
     render()
     {
+
+        // if( this.state.citySelected != null ){
+        //     console.log( "city selected: ", this.state.citySelected );
+        //     return <Redirect to='/itineraries'></Redirect>
+        // }
+
         console.log( "RENDER check props... ", this.props );
         const filteredCities = Array.from( this.props.cities ).filter( city => {
             return String( city.city ).toLowerCase().includes( this.state.searchInput.toLowerCase() )
@@ -41,7 +52,8 @@ class Cities extends React.Component {
         console.log( "filtered cities", filteredCities );
 
         const filteredCityCards = filteredCities.map( city => {
-            return <CityCard city={city} ></CityCard>
+            const url = "itineraries/" + city.city.toLowerCase();
+            return <Link to={url}><CityCard city={city} ></CityCard></Link>
         });
         console.log( "filtered city cards", filteredCityCards );
 
