@@ -5,8 +5,9 @@ const cityModel = require('../models/City');
 
 const router = express.Router();
 
+
 router.get('/', (req, res) => {
-    console.log( "find all cities..." );
+    console.log( "find ALL cities for req...", req );
     cityModel.find( {}, function(err, cities){
         console.log( "callback... " );
         console.log( cities );
@@ -20,6 +21,7 @@ router.get('/', (req, res) => {
     } )
 //    res.send('show all cities!'); 
 });
+
 
 module.exports = router;
 

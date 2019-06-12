@@ -10,7 +10,6 @@ import './homepage.css';
 
 class HomePage extends React.Component {
 
-
     render(){
         return (
 
@@ -28,14 +27,10 @@ class HomePage extends React.Component {
                 <p className="text-align-centered">Find your perfect trip, designed by insiders who know and love their cities.</p>
               
                 <Link to="/cities"><Button id="next-btn" imgURL="circledArrow.png" altText="Next"></Button></Link>
-
-                
-                
                 
             </div>
         );
     }
-
 }
 
 export default HomePage;

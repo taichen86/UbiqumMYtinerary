@@ -9,22 +9,20 @@ const initialState = {
     switch (action.type) {
   
         case "FETCH_ITINERARY_IN_PROGRESS":
-          console.log( '=== FETCH_CITY_IN_PROGRESS ===' );
-          return { ...state, isLoading: true }
+          console.log( '=== FETCH_ITINERARY_IN_PROGRESS ===' );
+          return { ...state, isLoading: true, error: {} }
   
         case "FETCH_ITINERARY_SUCCESS":
-          console.log( '=== FETCH_CITY_SUCCESS ===' );
-          console.log( action );
-          return { ...state, itineraries: action.itineraries, isLoading: false }
+          console.log( '=== FETCH_ITINERARY_SUCCESS ===', action );
+          return { ...state, itineraries: action.itineraries, isLoading: false, error: {} }
   
         case "FETCH_ITINERARY_FAILED":
-          console.log( '=== FETCH_CITY_FAILED ===' );
-          console.log( action );
+          console.log( '=== FETCH_ITINERARY_FAILED ===', action );
           return { ...state, isLoading: false, error: action.error }
   
-          default:
-              console.log( "return default state" , state );
-          return state
+        default:
+            console.log( "return default state" , state );
+        return state
           
         }
   }
