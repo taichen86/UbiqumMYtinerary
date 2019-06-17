@@ -8,7 +8,7 @@ class CityCard extends React.Component {
 
         const cardStyle = {
             height: '15%',
-            backgroundImage: 'url(city-' + this.props.city.city + '.jpg)',
+            backgroundImage: 'url(city-' + this.props.city.city.toLowerCase() + '.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center center'
           };
@@ -23,13 +23,6 @@ class CityCard extends React.Component {
                 </div>
         );
     }
-
-    // handleClick = (city, e) => {
-    //     console.log( 'clicked event ' , e );
-    //     console.log( 'clicked city ' , city );
-    //     this.props.history.push('/itineraries')
-    // }
-
 
 }
 

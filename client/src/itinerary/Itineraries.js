@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {fetchAllItineraries} from '../actions/itineraryActions';
 import ItineraryCard from './ItineraryCard';
+import CityCard from '../city/CityCard';
 
 
 class Itineraries extends React.Component {
@@ -14,7 +15,12 @@ class Itineraries extends React.Component {
 
     render(){
 
-        console.log( "render: ", this.props.itineraries );
+        const errorText = '';
+        if( this.props.error != null ){
+            errorText = String( this.props.error );
+        }
+
+        console.log( "render PROPS: ", this.props );
         const itinerariesToShow = this.props.itineraries.map( itinerary => {
             return <ItineraryCard itinerary={itinerary} ></ItineraryCard>
         });
@@ -22,10 +28,10 @@ class Itineraries extends React.Component {
 
         return(
             <div>
-
+                <CityCard city={this.props.location.state.city}></CityCard>
                <h3>Available MYtineraries:</h3>
                <label>{this.props.isLoading ? 'Fetching data...' : ''}</label>
-               <label> Error == {String(this.props.error)}</label>
+               <label> {errorText}</label>
                 {itinerariesToShow}
                
             </div>

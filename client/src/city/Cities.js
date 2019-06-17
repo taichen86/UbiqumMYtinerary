@@ -39,12 +39,6 @@ class Cities extends React.Component {
 
     render()
     {
-
-        // if( this.state.citySelected != null ){
-        //     console.log( "city selected: ", this.state.citySelected );
-        //     return <Redirect to='/itineraries'></Redirect>
-        // }
-
         console.log( "RENDER check props... ", this.props );
         const filteredCities = Array.from( this.props.cities ).filter( city => {
             return String( city.city ).toLowerCase().includes( this.state.searchInput.toLowerCase() )
@@ -53,8 +47,14 @@ class Cities extends React.Component {
 
         const filteredCityCards = filteredCities.map( city => {
             const url = "itineraries/" + city.city.toLowerCase();
-            return <Link to={url}><CityCard city={city} ></CityCard></Link>
+            return <Link to={{
+                pathname: url,
+                state: {
+                  city: city
+                }
+              }} ><CityCard city={city} ></CityCard></Link>
         });
+
         console.log( "filtered city cards", filteredCityCards );
 
         return (

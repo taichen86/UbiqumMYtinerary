@@ -1,3 +1,26 @@
+/* html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+} */
+
+/***********************************************/
+
 #header-bar{
     display: flex;
     justify-content: space-between
@@ -27,13 +50,50 @@
     flex-wrap: wrap;
 }
 
-#itinerary-card{
+/* #itinerary-card{
     width: 40%;
     margin-bottom: 10%;
     margin-right: 5%;
     padding: 2%;
     background-color: lightblue;
+} */
+
+
+#itinerary-card{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto 20px;
 }
+
+#itinerary-card .user-avatar{
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+}
+
+#itinerary-card .details{
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+} 
+
+#itinerary-card .stats{
+    display: flex;
+    justify-content: space-between; 
+}
+
+#itinerary-card img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+#itinerary-card .expand{
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 1;
+    text-align: center;
+    color: darkblue;
+    font-size: 0.9em;
+}
+
 
 #homepage{
     padding: 10px;

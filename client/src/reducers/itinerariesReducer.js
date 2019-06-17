@@ -1,7 +1,7 @@
 const initialState = {
     itineraries: [],
     isLoading : false,
-    error: {}
+    error: null
   }
   
   const itinerariesReducer = (state = initialState, action) => {
@@ -10,11 +10,11 @@ const initialState = {
   
         case "FETCH_ITINERARY_IN_PROGRESS":
           console.log( '=== FETCH_ITINERARY_IN_PROGRESS ===' );
-          return { ...state, isLoading: true, error: {} }
+          return { ...state, isLoading: true, error: null }
   
         case "FETCH_ITINERARY_SUCCESS":
           console.log( '=== FETCH_ITINERARY_SUCCESS ===', action );
-          return { ...state, itineraries: action.itineraries, isLoading: false, error: {} }
+          return { ...state, itineraries: action.itineraries, isLoading: false, error: null }
   
         case "FETCH_ITINERARY_FAILED":
           console.log( '=== FETCH_ITINERARY_FAILED ===', action );
