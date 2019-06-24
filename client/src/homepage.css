@@ -32,10 +32,10 @@ time, mark, audio, video {
     float: left;
 }
 
-#home-btn{
+/* #home-btn{
     width: 10%;
     float: right;
-}
+} */
 
 #next-btn{
     width: 30%;
@@ -49,15 +49,6 @@ time, mark, audio, video {
     display: flex;
     flex-wrap: wrap;
 }
-
-/* #itinerary-card{
-    width: 40%;
-    margin-bottom: 10%;
-    margin-right: 5%;
-    padding: 2%;
-    background-color: lightblue;
-} */
-
 
 #itinerary-card{
     width: 100%;
@@ -129,3 +120,15 @@ time, mark, audio, video {
     display: flex;
     flex-wrap: wrap;
   }
+
+  /*** footer ****/
+#home-btn{
+    width: 64px;
+    display: block;
+    margin: auto;
+
+}
+
+   /*** end footer ****/
+
+

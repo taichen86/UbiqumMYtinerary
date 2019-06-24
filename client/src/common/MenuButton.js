@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Wrapper, Button, Menu, MenuItem } from 'react-aria-menubutton';
 
 export const loginMenu = { 
@@ -39,8 +40,9 @@ class MenuButton extends React.Component{
         );
       }
 
-      handleSelection = (value, event) => { 
-          console.log( 'handleSelection: ', value, event );
+      handleSelection = (value) => { 
+          console.log( 'handleSelection: ', value );
+    
        }
 
 }

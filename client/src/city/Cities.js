@@ -59,15 +59,12 @@ class Cities extends React.Component {
 
         return (
             <div>
-                <div id="header-bar">
-                    <MenuButton menuItemWords={loginMenu.items} imgURL={loginMenu.url} ></MenuButton>
-                    <MenuButton menuItemWords={mainMenu.items} imgURL={mainMenu.url} ></MenuButton>
-                </div>
 
                 <h5>Find our current cities:</h5>
                 <SearchBox onChange={this.updateSearchInput}></SearchBox>
                 <label>{this.props.isLoading ? 'Fetching data...' : ''}</label>
                 {filteredCityCards}
+
             </div>
         );
     }
