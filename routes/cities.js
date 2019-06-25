@@ -19,15 +19,11 @@ router.get('/', (req, res) => {
         res.json( cities );
         
     } )
-//    res.send('show all cities!'); 
 });
 
 
-module.exports = router;
 
-// // home page route (http://localhost:8080)
-// router.get('/', (req, res) => {
-//     res.send('im the home page!');  
-// });
+
+module.exports = router;
 
 

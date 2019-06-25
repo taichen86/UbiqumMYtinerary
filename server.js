@@ -9,8 +9,9 @@ const cors = require( 'cors' );
 
 const citiesRoute = require( './routes/cities' );
 const initerariesRoute = require( './routes/itineraries' );
+const activitiesRoute = require( './routes/activities' );
 
-const mongoose = require('mongoose');
+const mongoose = require( 'mongoose' );
 mongoose.connect( 'mongodb+srv://ubiqum-victoria:ubiqum2019@cluster0-dbuta.mongodb.net/MYtineraries?retryWrites=true', {useNewUrlParser: true});
 
 const connection = mongoose.connection;
@@ -31,11 +32,13 @@ app.use( cors() );
 
 app.use( '/cities', citiesRoute );
 app.use( '/itineraries', initerariesRoute );
+app.use( '/activities', activitiesRoute );
+
 // app.use('/', router);
 
 
 // START THE SERVER
 // ==============================================
-app.listen(port);
-console.log('Magic happens on port ' + port);
+app.listen( port );
+console.log('listening on port ' + port);
 

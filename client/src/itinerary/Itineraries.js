@@ -51,8 +51,7 @@ const mapStateToProps = ( state ) => {
 
 const mapDispatchToProps = ( dispatch ) => {
     return {
-        fetchAllItineraries : ( city ) => dispatch( fetchAllItineraries( city ) )
-    }
+        fetchAllItineraries : ( city ) => dispatch( fetchAllItineraries( city ) )    }
 }
 
 export default connect( mapStateToProps, mapDispatchToProps )( Itineraries )

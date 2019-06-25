@@ -1,4 +1,8 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
+import {fetchAllActivities} from '../actions/itineraryActions';
+
 import '../homepage.css';
 
 
@@ -11,41 +15,32 @@ class ItineraryCard extends React.Component {
             isExpanded: false,
             toggleButtonText: 'view all'
         };
-        // this.expandView = this.expandView.bind( this );
-        // this.collapseView = this.collapseView.bind( this );
         this.toggleView = this.toggleView.bind( this );
     }
 
     toggleView(){
 
-        // this.setState({ isExpanded: !this.state.isExpanded });
         if( this.state.isExpanded ){
             this.setState({ isExpanded: false, toggleButtonText: 'view all'})
         }else{
+            // TODO: fetch activities
+            // console.log( this.props );
+            // console.log( this.props.itinerary );
+            this.props.fetchAllActivities( this.props.itinerary.title );
             this.setState({ isExpanded: true, toggleButtonText: 'close'})
         }
 
     }
 
-    // expandView(){
-    //     console.log( 'expand view' );
-    //     this.setState({ isExpanded: true });
-    // }
-
-    // collapseView(){
-    //     console.log( 'collapse view' );
-    //     this.setState({ isExpanded: false }); 
-    // }
-
  
 
     render(){
+        console.log( 'itinerary props: ', this.props );
 
         const hashtags = this.props.itinerary.hashtag.forEach( tag => {
             return <label>#{tag}</label>
         });
 
-        const toggleButtonText = this.isExpanded ? 'close' : 'view all';
 
         return (
         <div id="itinerary-card">
@@ -70,7 +65,16 @@ class ItineraryCard extends React.Component {
                 </div>
                 
                 { this.state.isExpanded ? 
-                <div>'EXPANDED'</div> 
+                <div>'EXPANDED'
+                    
+                    <div className="card-slider">
+                        <div className="card-slider-wrapper">
+                        {}
+                        </div>
+                    </div>
+
+
+                </div> 
                 
                 :
                 
@@ -88,5 +92,19 @@ class ItineraryCard extends React.Component {
 
 }
 
+const mapStateToProps = ( state ) => {
+    console.log( "updated state" , state );
+    return {
+        activities: state.activitiesReducer.activities,
+        isLoading: state.activitiesReducer.isLoading,
+        error: state.activitiesReducer.error
+    }
+}
 
-export default ItineraryCard;
+const mapDispatchToProps = ( dispatch ) => {
+    return {
+        fetchAllActivities : ( itinerary ) => dispatch( fetchAllActivities( itinerary ) )
+    }
+}
+
+export default connect( mapStateToProps, mapDispatchToProps )( ItineraryCard )

@@ -16,6 +16,7 @@ router.get('/:city', (req, res) => {
         // console.log( "response set header" );
         // res.setHeader( "Access-Control-Allow-Origin", "http://localhost:3000" );
 
+        // TODO: filter in search
         let filteredItineraries = itineraries.filter(itinerary => String(itinerary.city).toLowerCase() == req.params.city)
         res.json( filteredItineraries );
 
@@ -23,6 +24,7 @@ router.get('/:city', (req, res) => {
     })
 //    res.send('show all itineraries!'); 
 });
+
 
 
 module.exports = router;
