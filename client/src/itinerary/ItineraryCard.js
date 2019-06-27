@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {fetchAllActivities} from '../actions/itineraryActions';
+import {fetchAllActivities} from '../actions/activityActions';
+import ActivityCard from './ActivityCard';
 
 import '../homepage.css';
 
@@ -13,7 +14,8 @@ class ItineraryCard extends React.Component {
         super( props );
         this.state = {
             isExpanded: false,
-            toggleButtonText: 'view all'
+            toggleButtonText: 'view all',
+            comment: null
         };
         this.toggleView = this.toggleView.bind( this );
     }
@@ -32,7 +34,21 @@ class ItineraryCard extends React.Component {
 
     }
 
- 
+    handleChange = ( input ) => {
+        console.log( 'handleChange: ', input.target.value );
+        this.state.comment = input.target.value;
+    }
+
+    handleKeyPress = (event) => {
+        if(event.key === 'Enter'){
+          console.log('enter press here! ')
+          // ACTION - add comment
+
+          // reset input
+
+        }
+      }
+
 
     render(){
         console.log( 'itinerary props: ', this.props );
@@ -44,7 +60,6 @@ class ItineraryCard extends React.Component {
 
         return (
         <div id="itinerary-card">
-
                 <div className="user-avatar">
                     <img src={process.env.PUBLIC_URL + '/ChicaHambre.png'} alt='user-avatar'></img>
                     <label>username</label>
@@ -65,21 +80,24 @@ class ItineraryCard extends React.Component {
                 </div>
                 
                 { this.state.isExpanded ? 
-                <div>'EXPANDED'
+                <div>
                     
-                    <div className="card-slider">
+
+                    {/* <div className="card-slider">
                         <div className="card-slider-wrapper">
-                        {}
+                        { this.props.activities.map( activity => 
+                            <ActivityCard activity={activity}>
+                            </ActivityCard> ) }
                         </div>
-                    </div>
-
-
+                    </div> */}
+                    <input type="text" placeholder="comment..." id="comment"
+                    onChange={this.handleChange} onKeyPress={this.handleKeyPress}></input>
                 </div> 
                 
                 :
                 
                 
-                'NOT EXPANDED' }
+                <div></div> }
 
             <div className="toggle" onClick={this.toggleView}>{this.state.toggleButtonText}</div>
             </div>                
@@ -103,7 +121,7 @@ const mapStateToProps = ( state ) => {
 
 const mapDispatchToProps = ( dispatch ) => {
     return {
-        fetchAllActivities : ( itinerary ) => dispatch( fetchAllActivities( itinerary ) )
+        fetchAllActivities : ( itinerary ) => dispatch( fetchAllActivities( itinerary ) ),
     }
 }
 

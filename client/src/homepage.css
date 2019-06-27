@@ -72,9 +72,10 @@ time, mark, audio, video {
     justify-content: space-between; 
 }
 
-#itinerary-card img{
+.user-avatar img{
     width: 100%;
     border-radius: 50%;
+    max-width: 50%;
 }
 
 #itinerary-card .expand{
